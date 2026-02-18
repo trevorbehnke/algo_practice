@@ -21,7 +21,11 @@
  */
 
 function truncate(str, max) {
-  // Your code here
+  if (max >= str.length) {
+    return str
+  } else {
+    return str.slice(0, max - 3) + "..."
+  }
 }
 
 module.exports = truncate;
