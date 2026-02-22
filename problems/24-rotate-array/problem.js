@@ -22,7 +22,19 @@
  */
 
 function rotate(arr, k) {
-  // Your code here
+  if (k > arr.length) {
+    k = k % arr.length
+  }
+  let slice1 = arr.slice(0, arr.length - k)
+  let slice2 = arr.slice(arr.length - k, arr.length)
+  let answer = [...slice2, ...slice1]
+  return answer
 }
+
+rotate([1, 2, 3, 4, 5], 1)
+rotate([1, 2, 3, 4, 5], 2)
+rotate([1, 2, 3, 4, 5], 5)
+rotate([1, 2, 3, 4, 5], 7)
+rotate([1, 2], 0)
 
 module.exports = rotate;

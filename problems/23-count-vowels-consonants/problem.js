@@ -21,7 +21,24 @@
  */
 
 function countVC(str) {
-  // Your code here
+  const vowelList = "aeiou"
+  const cleaned = str.replace(/[^a-zA-Z]/g, '').toLowerCase()
+  let map = { vowels: 0, consonants: 0 }
+  for (let i = 0; i < cleaned.length; i++) {
+    if (vowelList.includes(cleaned[i])) {
+      map.vowels++
+    } else {
+      map.consonants++
+    }
+  }
+  console.log(map)
+  return map
 }
+
+countVC("hello")
+countVC("aeiou")
+countVC("xyz")
+countVC("Hello World")
+countVC("")
 
 module.exports = countVC;

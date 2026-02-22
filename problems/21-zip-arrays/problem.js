@@ -16,7 +16,15 @@
  */
 
 function zip(arr1, arr2) {
-  // Your code here
+  let ans = []
+  for (let i = 0; i < Math.min(arr1.length, arr2.length); i++) {
+    ans.push([arr1[i], arr2[i]])
+  }
+  return ans
 }
+
+zip([1, 2, 3, 4], ["a", "b", "c"])
+// zip([1, 2], ["a", "b", "c"])
+// zip([], [1, 2])
 
 module.exports = zip;

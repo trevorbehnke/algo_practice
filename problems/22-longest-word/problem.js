@@ -19,7 +19,19 @@
  */
 
 function longestWord(str) {
-  // Your code here
+  let cleaned = str.replace(/[^a-zA-Z0-9\s-]/g, '').split(' ')
+  let ans = ""
+  for (let i = 0; i < cleaned.length; i++) {
+    if (cleaned[i].length > ans.length) {
+      ans = cleaned[i]
+    }
+  }
+  return ans
 }
+
+longestWord("The quick brown fox")
+longestWord("I love JavaScript!")
+longestWord("hi")
+longestWord("one, two, three!")
 
 module.exports = longestWord;

@@ -30,7 +30,30 @@
  */
 
 function deepEqual(a, b) {
-  // Your code here
+  if (a === null && b === null) return true
+  if (a === null || b === null) return false
+  if (typeof a !== "object" && typeof b !== "object") return a === b
+  if (typeof a === "object" && typeof b === "object") {
+    if (Object.keys(a).length === Object.keys(b).length) {
+      for (let key in a) {
+        if (deepEqual(a[key], b[key]) === false) {
+          return false
+        }
+      }
+      return true
+    }
+    return false
+  }
 }
+
+// deepEqual(1, 1)
+// deepEqual("hi", "hi")
+// deepEqual([1, 2], [1, 2])
+// deepEqual([1, 2], [1, 3])
+// deepEqual({ a: 1 }, { a: 1 })
+// deepEqual({ a: 1 }, { a: 2 })
+// deepEqual({ a: [1, 2] }, { a: [1, 2] })
+// deepEqual(null, null)
+// deepEqual(1, "1")
 
 module.exports = deepEqual;
