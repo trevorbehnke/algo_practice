@@ -19,7 +19,13 @@
  */
 
 function missingNumber(nums) {
-  // Your code here
+  const length = nums.length
+  let expectedSum = length * (length + 1) / 2
+  let actualSum = nums.reduce((acc, curr) => acc + curr, 0)
+  let answer = expectedSum - actualSum
+  return answer
 }
+
+missingNumber([9, 6, 4, 2, 3, 5, 7, 0, 1]) // 8
 
 module.exports = missingNumber;

@@ -28,7 +28,24 @@
  */
 
 function isBalanced(str) {
-  // Your code here
+  let stack = []
+  const pairs = { "(": ")", "[": "]", "{": "}" }
+  for (let i = 0; i < str.length; i++) {
+    if (pairs[str[i]]) {
+      stack.push(str[i])
+    } else {
+      let popped = stack.pop()
+      if (pairs[popped] !== str[i]) return false
+    }
+  }
+  return stack.length === 0
 }
+
+isBalanced("()")
+isBalanced("()[]{}")
+isBalanced("(]")
+isBalanced("([)]")
+isBalanced("{[]}")
+isBalanced("")
 
 module.exports = isBalanced;

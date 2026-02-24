@@ -22,7 +22,36 @@
  */
 
 function mergeSorted(arr1, arr2) {
-  // Your code here
+  let result = []
+  let i = 0
+  let j = 0
+
+  while (i < arr1.length && j < arr2.length) {
+    if (arr1[i] <= arr2[j]) {
+      result.push(arr1[i])
+      i++
+    } else {
+      result.push(arr2[j])
+      j++
+    }
+  }
+
+  while (i < arr1.length) {
+    result.push(arr1[i])
+    i++
+  }
+
+  while (j < arr2.length) {
+    result.push(arr2[j])
+    j++
+  }
+
+  return result
 }
+
+mergeSorted([1, 3, 5], [2, 4, 6])
+mergeSorted([1, 2], [3, 4, 5])
+mergeSorted([], [1, 2])
+mergeSorted([1], [])
 
 module.exports = mergeSorted;
