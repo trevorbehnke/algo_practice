@@ -19,7 +19,13 @@
  */
 
 function sumDigits(num) {
-  // Your code here
+  return num.toString().split("").map(Number).reduce((acc, num) => acc + num, 0)
 }
+
+sumDigits(123)    //=> 6(1 + 2 + 3)
+sumDigits(49)     //=> 13(4 + 9)
+sumDigits(1000)   //=> 1(1 + 0 + 0 + 0)
+sumDigits(7)      //=> 7
+sumDigits(0)      //=> 0
 
 module.exports = sumDigits;

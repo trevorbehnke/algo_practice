@@ -18,7 +18,12 @@
  */
 
 function uniqueSorted(arr) {
-  // Your code here
+  return [...new Set(arr)].sort((a, b) => a - b)
 }
+
+uniqueSorted([3, 1, 2, 3, 1])    // => [1, 2, 3]
+uniqueSorted([5, 5, 5])          // => [5]
+uniqueSorted([4, 2, 7, 2, 1])    // => [1, 2, 4, 7]
+uniqueSorted([])                 // => []
 
 module.exports = uniqueSorted;
