@@ -25,7 +25,26 @@
  */
 
 function binarySearch(arr, target) {
-  // Your code here
+  let start = 0
+  let end = arr.length - 1
+  while (start <= end) {
+    // Find index of middle element
+    const mid = Math.floor((start + end) / 2)
+    if (arr[mid] === target) {
+      return mid
+    } else if (arr[mid] < target) {
+      start = mid + 1
+    } else {
+      end = mid - 1
+    }
+  }
+  return -1
 }
+
+binarySearch([1, 3, 5, 7, 9, 11, 13, 15, 17, 19, 21], 17)    // => 9
+binarySearch([1, 3, 5, 7, 9], 6)    // => -1
+binarySearch([2, 4, 6, 8, 10], 10)  // => 4
+binarySearch([1], 1)                // => 0
+binarySearch([], 5)                 // => -1
 
 module.exports = binarySearch;

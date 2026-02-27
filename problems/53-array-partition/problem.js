@@ -23,7 +23,21 @@
  */
 
 function partition(arr, callback) {
-  // Your code here
+  let trueArr = []
+  let falseArr = []
+  arr.forEach((val) => {
+    callback(val) ? trueArr.push(val) : falseArr.push(val)
+  })
+  return [trueArr, falseArr]
 }
+
+partition([1, 2, 3, 4, 5], n => n % 2 === 0)
+// => [[2, 4], [1, 3, 5]]
+
+partition(["cat", "car", "dog"], w => w.startsWith("c"))
+// => [["cat", "car"], ["dog"]]
+
+partition([1, 2, 3], n => n > 10)
+// => [[], [1, 2, 3]]
 
 module.exports = partition;

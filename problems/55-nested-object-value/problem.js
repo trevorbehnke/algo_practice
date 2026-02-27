@@ -21,7 +21,20 @@
  */
 
 function getNestedValue(obj, path) {
-  // Your code here
+  const keyArr = path.split(".")
+  for (let i = 0; i < keyArr.length; i++) {
+    obj = obj[keyArr[i]]
+    if (obj === undefined) return undefined
+  }
+  return obj
 }
+
+// Given an object and a key; Find the value in the object.
+
+getNestedValue({ a: { b: { c: 42 } } }, "a.b.c")        // => 42
+getNestedValue({ a: { b: { c: 42 } } }, "a.b")          // => { c: 42 }
+getNestedValue({ a: { b: 1 } }, "a.x")                  // => undefined
+getNestedValue({ name: "Alice" }, "name")               // => "Alice"
+getNestedValue({}, "a.b")                               // => undefined
 
 module.exports = getNestedValue;

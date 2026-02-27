@@ -19,7 +19,21 @@
  */
 
 function camelToSnake(str) {
-  // Your code here
+  let result = ""
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === str[i].toUpperCase() && str[i] !== str[i].toLowerCase()) {
+      result += (i === 0 ? "" : "_") + str[i].toLowerCase()
+    } else {
+      result += str[i]
+    }
+  }
+  return result
 }
+
+camelToSnake("helloWorld")       // => "hello_world"
+camelToSnake("getElementById")   // => "get_element_by_id"
+camelToSnake("alreadylower")     // => "alreadylower"
+camelToSnake("XMLParser")        // => "x_m_l_parser"
+camelToSnake("")                 // => ""
 
 module.exports = camelToSnake;
