@@ -32,7 +32,17 @@
  */
 
 function fromArray(arr) {
-  // Your code here
+  let head = null
+  for (let i = arr.length - 1; i >= 0; i--) {
+    head = { value: arr[i], next: head }
+  }
+  return head
 }
+
+fromArray([1, 2, 3]) // => { value: 1, next: { value: 2, next: { value: 3, next: null } } }
+
+fromArray(["a"]) // => { value: "a", next: null }
+
+fromArray([]) // => null
 
 module.exports = fromArray;

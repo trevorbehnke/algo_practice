@@ -17,7 +17,18 @@
  */
 
 function everyOther(arr) {
-  // Your code here
+  let result = []
+  arr.forEach((el, i) => {
+    if (i % 2 === 0) {
+      result.push(el)
+    }
+  })
+  return result
 }
+
+everyOther([1, 2, 3, 4, 5])      // => [1, 3, 5]
+everyOther(["a", "b", "c", "d"]) // => ["a", "c"]
+everyOther([10])                 // => [10]
+everyOther([])                   // => []
 
 module.exports = everyOther;

@@ -5,7 +5,7 @@
  * starts with ANY of the prefixes, false otherwise.
  *
  * Examples:
- *   startsWithAny("hello world", ["he", "hi", "ho"])     => true
+startsWithAny("hello world", ["he", "hi", "ho"])     => true
  *   startsWithAny("goodbye", ["he", "hi", "ho"])         => false
  *   startsWithAny("interesting", ["inter", "intro"])     => true
  *   startsWithAny("test", [])                            => false
@@ -20,7 +20,18 @@
  */
 
 function startsWithAny(str, prefixes) {
-  // Your code here
+  for (let i = 0; i < prefixes.length; i++) {
+    if (str.startsWith(prefixes[i])) {
+      return true
+    }
+  }
+  return false
 }
+
+startsWithAny("hello world", ["he", "hi", "ho"])     // => true
+// startsWithAny("goodbye", ["he", "hi", "ho"])         // => false
+// startsWithAny("interesting", ["inter", "intro"])     // => true
+// startsWithAny("test", [])                            // => false
+// startsWithAny("", ["a"])                             // => false
 
 module.exports = startsWithAny;

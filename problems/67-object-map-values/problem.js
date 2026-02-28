@@ -22,7 +22,17 @@
  */
 
 function mapValues(obj, callback) {
-  // Your code here
+  let result = {}
+  for (let key in obj) {
+    result[key] = callback(obj[key])
+  }
+  return result
 }
+
+mapValues({ a: 1, b: 2, c: 3 }, v => v * 2) // => { a: 2, b: 4, c: 6 }
+
+mapValues({ x: "hi", y: "hello" }, v => v.length) // => { x: 2, y: 5 }
+
+mapValues({}, v => v) // => {}
 
 module.exports = mapValues;
