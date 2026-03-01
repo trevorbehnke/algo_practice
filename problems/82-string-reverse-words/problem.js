@@ -16,8 +16,18 @@
  * Pattern: Split, transform, rejoin.
  */
 
+// SOLUTION 1
+// function reverseWords(str) {
+//   let result = []
+//   str.split(" ").forEach((word) => {
+//     result.unshift(word)
+//   })
+//   return result.join(" ")
+// }
+
+// SOLUTION 2
 function reverseWords(str) {
-  // Your code here
+  return str.split(" ").reverse().join(" ")
 }
 
 module.exports = reverseWords;

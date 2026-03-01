@@ -21,7 +21,16 @@
  */
 
 function hasAllKeys(obj, keys) {
-  // Your code here
+  for (let i = 0; i < keys.length; i++) {
+    if (obj[keys[i]] === undefined) return false
+  }
+  return true
+
 }
+
+hasAllKeys({ a: 1, b: 2, c: 3 }, ["a", "b"])     // => true
+hasAllKeys({ a: 1, b: 2 }, ["a", "b", "c"])      // => false
+hasAllKeys({ x: 1 }, [])                         // => true
+hasAllKeys({}, ["a"])                            // => false
 
 module.exports = hasAllKeys;

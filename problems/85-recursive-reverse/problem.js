@@ -33,7 +33,13 @@
  */
 
 function recursiveReverse(str) {
-  // Your code here
+  if (str.length === 0) return ""
+  return str[str.length - 1] + recursiveReverse(str.slice(0, -1))
 }
+
+recursiveReverse("hello")  // => "olleh"
+recursiveReverse("ab")     // => "ba"
+recursiveReverse("a")      // => "a"
+recursiveReverse("")       // => ""
 
 module.exports = recursiveReverse;

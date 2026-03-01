@@ -23,8 +23,31 @@
  * Pattern: Transform with .map() — extracting a property.
  */
 
+// SOLUTION 1
+// function pluck(arr, key) {
+//   let result = []
+//   arr.forEach((obj) => {
+//     result.push(obj[key])
+//   })
+//   console.log(result)
+//   return result
+// }
+
+// SOLUTION 1
 function pluck(arr, key) {
-  // Your code here
+  return arr.map((obj) => obj[key])
 }
+
+pluck([{ name: "Alice" }, { name: "Bob" }], "name")
+// => ["Alice", "Bob"]
+
+pluck([{ a: 1, b: 2 }, { a: 3, b: 4 }], "b")
+// => [2, 4]
+
+pluck([{ x: 1 }, { y: 2 }], "x")
+// => [1, undefined]
+
+pluck([], "name")
+// => []
 
 module.exports = pluck;
